@@ -1,7 +1,5 @@
 package com.example.androidlifecycle;
 
-import static android.content.ContentValues.TAG;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -9,6 +7,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
+
+
+    private final String TAG = "MainActivity Lifecycle";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,13 @@ public class MainActivity extends AppCompatActivity {
         super.onStop();
         showToast("onStop");
         Log.d(TAG, "onStop: ");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        showToast("onRestart");
+        Log.d(TAG, "onRestart: ");
     }
 
     @Override
