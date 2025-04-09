@@ -27,8 +27,10 @@ public class MainActivity extends AppCompatActivity {
         if (savedInstanceState != null) {
             counter = savedInstanceState.getInt(COUNTER_KEY, 0);
             Log.d("onCreate", "Counter restored: " + counter);
+            showToast("onCreate counter restored" + counter);
         } else {
             Log.d("onCreate", "Initial counter value: " + counter);
+            showToast("onCreate initial counter value" + counter);
         }
 
         updateCounterDisplay();
@@ -85,10 +87,12 @@ public class MainActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
         outState.putInt(COUNTER_KEY, counter);
         Log.d("onSaveInstanceState", "Counter saved: " + counter);
+        showToast("Counter saved: " + counter);
     }
 
     private void updateCounterDisplay() {
-        counterTextView.setText("Counter: " + counter);
+        String res = "Counter: " + counter;
+        counterTextView.setText(res);
     }
 
     private void showToast(String message) {
